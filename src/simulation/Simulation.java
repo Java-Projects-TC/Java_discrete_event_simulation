@@ -14,22 +14,24 @@ public class Simulation {
 
   // Methods
   public double getCurrentTime() {
-    return currentTime;
+    return this.currentTime;
   }
 
-  public void setCurrentTime(double currentTime) {
+  protected void setCurrentTime(double currentTime) {
     this.currentTime = currentTime;
   }
 
-  boolean stop() {return false;};
+  protected boolean stop() {return false;}
 
   protected void schedule(Event e, double offset) {
-    diary.add(new ScheduledEvent(e, offset));
+    this.diary.add(new ScheduledEvent(e,this.getCurrentTime() + offset));
   }
 
   protected void simulate() {
-    
-      }
+    while (!this.diary.isEmpty() && !this.stop()) {
+      ScheduledEvent event = this.diary.poll();
+      this.setCurrentTime(event.getTime());
+      event.getEvent().invoke(this);
     }
   }
 

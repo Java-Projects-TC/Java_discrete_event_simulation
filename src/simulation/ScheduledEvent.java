@@ -23,7 +23,7 @@ public class ScheduledEvent implements Comparable<ScheduledEvent> {
 
   @Override
   public int compareTo(ScheduledEvent scheduledEvent) {
-    return Double.compare(this.time, scheduledEvent.getTime());
+    return Double.compare(this.getTime(), scheduledEvent.getTime());
   }
 
 }

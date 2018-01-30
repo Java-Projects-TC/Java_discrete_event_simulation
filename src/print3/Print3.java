@@ -6,7 +6,7 @@ public class Print3 extends Simulation {
 
   @Override
   protected boolean stop() {
-    return false;
+    return true;
   }
 
   public static void main(String args[]) {
