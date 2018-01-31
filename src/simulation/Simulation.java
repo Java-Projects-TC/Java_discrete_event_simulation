@@ -23,14 +23,15 @@ public class Simulation {
 
   protected boolean stop() {return false;}
 
-  protected void schedule(Event e, double offset) {
+  public void schedule(Event e, double offset) {
     this.diary.add(new ScheduledEvent(e,this.getCurrentTime() + offset));
   }
 
   protected void simulate() {
-    while (!this.diary.isEmpty() && !this.stop()) {
+    while (!this.diary.isEmpty()) {
       ScheduledEvent event = this.diary.poll();
       this.setCurrentTime(event.getTime());
+      if (!this.stop())
       event.getEvent().invoke(this);
     }
   }

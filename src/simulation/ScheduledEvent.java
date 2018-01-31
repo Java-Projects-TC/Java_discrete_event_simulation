@@ -3,8 +3,8 @@ package simulation;
 public class ScheduledEvent implements Comparable<ScheduledEvent> {
 
   // Fields
-  private Event event;
-  private double time;
+  private final Event event;
+  private final double time;
 
   // Constructor
   public ScheduledEvent(Event e, double t) {
