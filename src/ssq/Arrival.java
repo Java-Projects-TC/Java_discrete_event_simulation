@@ -3,13 +3,12 @@ package ssq;
 import static ssq.SingleServerQueue.SERVICE_TIME;
 
 import simulation.Event;
-import simulation.Simulation;
 
-public class Arrival implements Event{
+public class Arrival implements Event<SingleServerQueue>{
 
   @Override
-  public void invoke(Simulation simulation) {
-    SingleServerQueue ssq = (SingleServerQueue) simulation;
+  public void invoke(SingleServerQueue ssq) {
+    //SingleServerQueue ssq = (SingleServerQueue) simulation;
     ssq.incrQueueLength();
     System.out.println("Arrival at " + ssq.getCurrentTime() + ", new "
         + "population = " + ssq.getQueueLength());

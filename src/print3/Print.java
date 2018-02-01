@@ -15,4 +15,5 @@ class Print implements Event<Print3> {
     System.out.println("Event " + n + " invoked at time "
         + simulation.getCurrentTime());
   }
+
 }

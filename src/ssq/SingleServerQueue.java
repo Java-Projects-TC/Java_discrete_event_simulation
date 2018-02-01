@@ -8,6 +8,8 @@ public class SingleServerQueue extends Simulation {
   private int queueLength = 0;
   private final double timeLimit;
   private Random interArrGen;
+  private double meanPop;
+  private double prevTime;
   static final double SERVICE_TIME = 0.25;
 
   public SingleServerQueue(long seed, double timeLimit) {
@@ -36,14 +38,16 @@ public class SingleServerQueue extends Simulation {
     this.queueLength--;
   }
 
-
+  
   public static void main(String[] args) {
     long seed = Long.parseLong(args[0]);
     double timeLimit = Double.parseDouble(args[1]);
     SingleServerQueue s = new SingleServerQueue(seed, timeLimit);
     s.schedule(new Arrival(), s.getInterArrivalTime());
     s.simulate();
-    System.out.println("SIMULATION COMPLETE");
+    System.out.println("SIMULATION COMPLETE - the mean queue length was ");
   }
+
+
 
 }

@@ -9,4 +9,5 @@ public class Tick implements Event<Ticks>{
     System.out.println("Tick at: " + simulation.getCurrentTime());
     simulation.schedule(new Tick(), 1);
   }
+
 }
