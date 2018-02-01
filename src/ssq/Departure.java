@@ -13,7 +13,7 @@ public class Departure implements Event {
     ssq.decrQueueLength();
     System.out.println("Departure at " + ssq.getCurrentTime() + ", new "
         + "population = " + ssq.getQueueLength());
-    if (ssq.getQueueLength() == 0) {
+    if (ssq.getQueueLength() != 0) {
       ssq.schedule(new Departure(), SERVICE_TIME);
     }
   }
