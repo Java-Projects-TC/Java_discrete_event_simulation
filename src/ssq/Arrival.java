@@ -1,11 +1,11 @@
 package ssq;
 
+import static ssq.SingleServerQueue.SERVICE_TIME;
+
 import simulation.Event;
 import simulation.Simulation;
 
 public class Arrival implements Event{
-
-  private static final double SERVICE_TIME = 0.25;
 
   @Override
   public void invoke(Simulation simulation) {
