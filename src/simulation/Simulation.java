@@ -3,16 +3,19 @@ package simulation;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class Simulation {
+public class Simulation<S> {
 
-  // Fields
+
   private double currentTime;
   private Queue<ScheduledEvent> diary = new PriorityQueue<>();
 
-  // Constructor
   public Simulation() {}
 
-  // Methods
+
+  protected S getState() {
+    return null;
+  }
+
   public double getCurrentTime() {
     return this.currentTime;
   }

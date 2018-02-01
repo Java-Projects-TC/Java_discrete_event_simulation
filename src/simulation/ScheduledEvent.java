@@ -1,18 +1,18 @@
 package simulation;
 
-public class ScheduledEvent implements Comparable<ScheduledEvent> {
+public class ScheduledEvent<S> implements Comparable<ScheduledEvent> {
 
-  // Fields
+
   private final Event event;
   private final double time;
 
-  // Constructor
+
   public ScheduledEvent(Event e, double t) {
     this.event = e;
     this.time = t;
   }
 
-  // Methods
+
   double getTime() {
     return time;
   }
