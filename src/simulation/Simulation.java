@@ -7,9 +7,7 @@ public class Simulation<S> {
 
 
   private double currentTime;
-  private Queue<ScheduledEvent> diary = new PriorityQueue<>();
-
-  public Simulation() {}
+  private Queue<ScheduledEvent<S>> diary = new PriorityQueue<>();
 
 
   protected S getState() {
@@ -20,22 +18,25 @@ public class Simulation<S> {
     return this.currentTime;
   }
 
-  protected void setCurrentTime(double currentTime) {
+  private void setCurrentTime(double currentTime) {
     this.currentTime = currentTime;
   }
 
-  protected boolean stop() {return false;}
+  protected boolean stop() {
+    return false;
+  }
 
-  public void schedule(Event e, double offset) {
-    this.diary.add(new ScheduledEvent(e,this.getCurrentTime() + offset));
+  public void schedule(Event<S> e, double offset) {
+    this.diary.add(new ScheduledEvent<S>(e, this.getCurrentTime() + offset));
   }
 
   protected void simulate() {
     while (!this.diary.isEmpty()) {
-      ScheduledEvent event = this.diary.poll();
+      ScheduledEvent<S> event = this.diary.poll();
       this.setCurrentTime(event.getTime());
-      if (!this.stop())
-      event.getEvent().invoke(this);
+      if (!this.stop()) {
+        event.getEvent().invoke(this.getState());
+      }
     }
   }
 

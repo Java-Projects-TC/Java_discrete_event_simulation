@@ -11,6 +11,7 @@ public class Departure implements Event<SingleServerQueue> {
   public void invoke(SingleServerQueue ssq) {
     //SingleServerQueue ssq = (SingleServerQueue) simulation;
     ssq.decrQueueLength();
+    ssq.incrServiced();
     System.out.println("Departure at " + ssq.getCurrentTime() + ", new "
         + "population = " + ssq.getQueueLength());
     if (ssq.getQueueLength() != 0) {

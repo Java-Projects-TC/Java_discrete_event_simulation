@@ -2,7 +2,8 @@ package ticks;
 
 import simulation.Event;
 
-public class Tick implements Event<Ticks>{
+public class Tick implements Event<Ticks> {
+
 
   @Override
   public void invoke(Ticks simulation) {

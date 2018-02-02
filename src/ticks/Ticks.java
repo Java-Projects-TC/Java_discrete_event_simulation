@@ -4,7 +4,9 @@ import simulation.Simulation;
 
 public class Ticks extends Simulation<Ticks> {
 
+
   private final double timeLimit;
+
 
   public Ticks(double timeLimit) {
     this.timeLimit = timeLimit;
@@ -12,7 +14,9 @@ public class Ticks extends Simulation<Ticks> {
 
 
   @Override
-  protected Ticks getState() { return this; }
+  protected Ticks getState() {
+    return this;
+  }
 
   @Override
   protected boolean stop() {

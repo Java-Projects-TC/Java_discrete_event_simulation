@@ -4,7 +4,8 @@ import static ssq.SingleServerQueue.SERVICE_TIME;
 
 import simulation.Event;
 
-public class Arrival implements Event<SingleServerQueue>{
+public class Arrival implements Event<SingleServerQueue> {
+
 
   @Override
   public void invoke(SingleServerQueue ssq) {

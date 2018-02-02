@@ -4,15 +4,18 @@ import simulation.Simulation;
 
 public class Print3 extends Simulation<Print3> {
 
+
   @Override
   protected Print3 getState() {
     return this;
   }
 
+
   @Override
   protected boolean stop() {
     return false;
   }
+
 
   public static void main(String args[]) {
 
